@@ -1,0 +1,21 @@
+{
+  "NetworkTables": {
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/SmartDashboard/Drivebase/Motors/LeftFollower": "Motor Controller",
+      "/SmartDashboard/Drivebase/Motors/LeftLeader": "Motor Controller",
+      "/SmartDashboard/Drivebase/Motors/RightFollower": "Motor Controller",
+      "/SmartDashboard/Drivebase/Motors/RightLeader": "Motor Controller"
+    }
+  },
+  "NetworkTables Info": {
+    "Server": {
+      "open": true
+    },
+    "visible": true
+  },
+  "NetworkTables Settings": {
+    "mode": "Client (NT4)",
+    "serverTeam": "8612"
+  }
+}

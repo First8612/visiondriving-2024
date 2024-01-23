@@ -56,7 +56,7 @@ public class Drivetrain extends SubsystemBase {
     }
 
     public void arcadeDrive(double speed, double rotation) {
-        m_robotDrive.arcadeDrive(speed, -rotation);
+        m_robotDrive.arcadeDrive(speed * 0.5, -rotation * 0.5);
     }
 
     public void tankDrive(double leftSpeed, double rightSpeed) {
