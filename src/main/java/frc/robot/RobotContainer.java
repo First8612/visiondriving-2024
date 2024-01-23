@@ -30,7 +30,7 @@ public class RobotContainer {
   private final XboxController m_driverController = new XboxController(0);
 
   //Buttons
-  private final JoystickButton m_aimButton = new JoystickButton(m_driverController, XboxController.Button.kY.value);
+  private final JoystickButton m_aimButton = new JoystickButton(m_driverController, XboxController.Button.kRightBumper.value);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -48,25 +48,17 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    // m_aimButton.whileTrue(new StartEndCommand(
-    // () -> {
-    //   m_limelightCommand.aim();
-    // },
-    // () -> {
-    //   m_limelightCommand.end();
-    // }));
   }
 
   public void teleOpCommand() {
     double rotation = m_driverController.getRawAxis(Axis.kRightX.value);
+    double limelight_tx = m_limelight.getTX().getDouble(0);
 
-    if (m_aimButton.getAsBoolean()) {
-      rotation = m_limelight.getTX().getDouble(0.0) * 0.03;
+    if (m_aimButton.getAsBoolean() && limelight_tx != 0) {
+      rotation = limelight_tx * 0.03;
     }
 
     m_drivetrain.arcadeDrive(m_driverController.getRawAxis(Axis.kLeftY.value), rotation);
-
-    System.out.println(rotation);
   }
 
   /**
